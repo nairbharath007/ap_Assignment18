@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountAppClassLibraryFramework", "AccountAppClassLibraryFramework.csproj", "{987DA714-D595-499E-AE00-97DC5A45FC06}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{987DA714-D595-499E-AE00-97DC5A45FC06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{987DA714-D595-499E-AE00-97DC5A45FC06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{987DA714-D595-499E-AE00-97DC5A45FC06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{987DA714-D595-499E-AE00-97DC5A45FC06}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B027746F-98FD-47CD-AA8D-9AC39C0483DD}
+	EndGlobalSection
+EndGlobal
