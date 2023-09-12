@@ -35,7 +35,7 @@ namespace GuitarAppChoices.Model
         public double Price
         {
             get { return price; }
-            //set { price = value; }
+            set { price = value; }
         }
 
         public Builder Builder

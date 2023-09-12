@@ -17,8 +17,8 @@ namespace GuitarApp.Model
         }
 
         public void AddGuitar(string serialNumber, double price,
-                              string builder, string model,
-                              string type, string backWood, string topWood)
+                              Builder builder, string model,
+                              Type type, Wood backWood, Wood topWood)
         {
             Guitar guitar = new Guitar(serialNumber, price, builder,
                                        model, type, backWood, topWood);
@@ -43,7 +43,7 @@ namespace GuitarApp.Model
             {
                 // Ignore serial number since that's unique
                 // Ignore price since that's unique
-                string builder = searchGuitar.Builder;
+                /*string builder = searchGuitar.Builder;
                 if (!string.IsNullOrEmpty(builder) && !string.Equals(builder, guitar.Builder, StringComparison.OrdinalIgnoreCase))
                     continue;
 
@@ -61,6 +61,27 @@ namespace GuitarApp.Model
 
                 string topWood = searchGuitar.TopWood;
                 if (!string.IsNullOrEmpty(topWood) && !string.Equals(topWood, guitar.TopWood, StringComparison.OrdinalIgnoreCase))
+                    continue;*/
+
+
+                if (searchGuitar.Builder != guitar.Builder)
+                    continue;
+
+                /*string model = searchGuitar.Model.ToLower();
+                if ((model != null) && (!model.Equals("")) && 
+                    (!model.Equals(guitar.Model.ToLower())))
+                        continue;*/
+                string model = searchGuitar.Model.ToLower();
+                //string model2 = guitar.Model.ToLower();
+                if (!string.IsNullOrEmpty(model) &&
+                    !string.Equals(model, guitar.Model.ToLower()))
+                    continue;
+
+                if (searchGuitar.Type != guitar.Type)
+                    continue;
+                if (searchGuitar.BackWood != guitar.BackWood)
+                    continue;
+                if(searchGuitar.TopWood != guitar.TopWood)
                     continue;
 
                 return guitar;

@@ -4,19 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GuitarApp.Model
+namespace GuitarAppBase.Model
 {
-    public class Guitar
+    internal class Guitar
     {
-        private string serialNumber, model;
+        private string serialNumber, builder, model, type, backWood, topWood;
         private double price;
-        private Builder builder;
-        private Type type;
-        private Wood backWood, topWood;
 
         public Guitar(string serialNumber, double price,
-                      Builder builder, string model, Type type,
-                      Wood backWood, Wood topWood)
+                      string builder, string model, string type,
+                      string backWood, string topWood)
         {
             this.serialNumber = serialNumber;
             this.price = price;
@@ -38,7 +35,7 @@ namespace GuitarApp.Model
             set { price = value; }
         }
 
-        public Builder Builder
+        public string Builder
         {
             get { return builder; }
         }
@@ -48,21 +45,20 @@ namespace GuitarApp.Model
             get { return model; }
         }
 
-        public Type Type
+        public string Type
         {
             get { return type; }
         }
 
-        public Wood BackWood
+        public string BackWood
         {
             get { return backWood; }
         }
 
-        public Wood TopWood
+        public string TopWood
         {
             get { return topWood; }
         }
     }
 }
-
 

@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-namespace GuitarAppChoices.Model
+namespace GuitarAppBase.Model
 {
-    public class Inventory
+    internal class Inventory
     {
         private List<Guitar> guitars;
 
@@ -17,8 +16,8 @@ namespace GuitarAppChoices.Model
         }
 
         public void AddGuitar(string serialNumber, double price,
-                              Builder builder, string model,
-                              Type type, Wood backWood, Wood topWood)
+                              string builder, string model,
+                              string type, string backWood, string topWood)
         {
             Guitar guitar = new Guitar(serialNumber, price, builder,
                                        model, type, backWood, topWood);
@@ -27,7 +26,6 @@ namespace GuitarAppChoices.Model
 
         public Guitar GetGuitar(string serialNumber)
         {
-            //return guitars.FirstOrDefault(guitar => guitar.SerialNumber.Equals(serialNumber, StringComparison.OrdinalIgnoreCase));
             foreach (Guitar guitar in guitars)
             {
                 if (guitar.SerialNumber.Equals(serialNumber, StringComparison.OrdinalIgnoreCase))
@@ -38,36 +36,36 @@ namespace GuitarAppChoices.Model
             return null;
         }
 
-        public List<Guitar> Search(Guitar searchGuitar)
+        public Guitar Search(Guitar searchGuitar)
         {
-            List<Guitar> matchingGuitars = new List<Guitar>();
             foreach (Guitar guitar in guitars)
             {
                 // Ignore serial number since that's unique
                 // Ignore price since that's unique
-                if (searchGuitar.Builder != guitar.Builder)
+                string builder = searchGuitar.Builder;
+                if (!string.IsNullOrEmpty(builder) && !string.Equals(builder, guitar.Builder, StringComparison.OrdinalIgnoreCase))
                     continue;
 
-                string model = searchGuitar.Model.ToLower();
-                if (!string.IsNullOrEmpty(model) &&
-                    !string.Equals(model, guitar.Model.ToLower(), StringComparison.OrdinalIgnoreCase))
+                string model = searchGuitar.Model;
+                if (!string.IsNullOrEmpty(model) && !string.Equals(model, guitar.Model, StringComparison.OrdinalIgnoreCase))
                     continue;
 
-                if (searchGuitar.Type != guitar.Type)
+                string type = searchGuitar.Type;
+                if (!string.IsNullOrEmpty(type) && !string.Equals(type, guitar.Type, StringComparison.OrdinalIgnoreCase))
                     continue;
 
-                if (searchGuitar.BackWood != guitar.BackWood)
+                string backWood = searchGuitar.BackWood;
+                if (!string.IsNullOrEmpty(backWood) && !string.Equals(backWood, guitar.BackWood, StringComparison.OrdinalIgnoreCase))
                     continue;
 
-                if (searchGuitar.TopWood != guitar.TopWood)
+                string topWood = searchGuitar.TopWood;
+                if (!string.IsNullOrEmpty(topWood) && !string.Equals(topWood, guitar.TopWood, StringComparison.OrdinalIgnoreCase))
                     continue;
 
-                matchingGuitars.Add(guitar);
+                return guitar;
             }
-            return matchingGuitars;
+            return null;
         }
-        
     }
-
-
 }
+
